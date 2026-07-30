@@ -8,28 +8,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header class="site-header">
-        <a class="brand" href="{{ route('home') }}">Presto</a>
-
-        <nav class="nav">
-            <a href="{{ route('announcements.create') }}">Inserisci annuncio</a>
-
-            @auth
-                <span class="auth-status">Sei loggato</span>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="link-button">Logout</button>
-                </form>
-            @else
-                <span class="auth-status">Effettua la registrazione</span>
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Registrati</a>
-            @endauth
-        </nav>
-    </header>
+    <x-navbar />
 
     <main class="page">
         {{ $slot }}
     </main>
+
+
 </body>
 </html>

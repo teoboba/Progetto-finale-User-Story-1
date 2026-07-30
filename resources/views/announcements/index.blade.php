@@ -1,0 +1,33 @@
+<x-layouts.app>
+<div class="container-fluid">
+    <div class="row height-custom justify-content-center align-items-center text-center">
+        <div class="col-12">
+            <h1 class="display-1">Tutti gli articoli</h1>
+        </div>
+    <div class="row height-custom justify-content-center align-items-center py-5">
+        @forelse ($announcements as $announcement)
+            <div class="col-12 col-md-3">
+                <x-card :announcement="$announcement" />
+            </div>
+            @empty
+            <div class="col-12">
+                <h3 class="text-center">Non sono ancora stati creati articoli</h3>
+            </div>
+        @endforelse
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <div>
+    {{ $announcements->links() }}
+    </div>
+</div>
+
+
+</x-layouts.app>
+
+
+
+
+
+
+
